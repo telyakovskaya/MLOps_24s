@@ -1,12 +1,15 @@
 [tool.poetry]
-name = "default-project"
+name = "mlops"
 version = "0.1.0"
-description = "project for mlops course"
-authors = ["Your Name <you@example.com>"]
+description = "image classification mlops project"
+authors = ["telyakovskaya"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+numpy = "^1.26.4"
+torch = "^2.3.1"
+torchvision = "^0.18.1"
 
 
 [build-system]
