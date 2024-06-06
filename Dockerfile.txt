@@ -9,7 +9,7 @@ ADD . /app
 
 # Install Poetry
 RUN pip install --upgrade pip && \
-    pip install numpy torch torchvision \
+    pip install numpy torch torchvision && \
     pip install --no-cache-dir poetry
 
 # Install any needed packages specified in pyproject.toml
