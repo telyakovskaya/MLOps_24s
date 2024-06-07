@@ -1,0 +1,20 @@
+data:
+  train_batch_size: 512
+  test_batch_size: 1024
+  root: "./data/"
+  num_workers: 4
+
+model:
+  save_to: "stupid_classifier.pth"
+  use_batchnorm: True
+
+training:
+  epochs: 1
+  learning_rate: 2e-2
+
+inferring:
+  prediction_filename: "stupid_prediction.csv"
+
+mlflow:
+  experiment_name: "simple_exp"
+  uri: "http://127.0.0.1:5000"

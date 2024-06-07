@@ -8,7 +8,11 @@ def make_features(cfg, use_batchnorm):
         if v == "M":
             ret += [torch.nn.MaxPool2d(kernel_size=2, stride=2)]
         else:
-            ret += [torch.nn.Conv2d(in_channels=in_channels, out_channels=v, kernel_size=3, padding=1)]
+            ret += [
+                torch.nn.Conv2d(
+                    in_channels=in_channels, out_channels=v, kernel_size=3, padding=1
+                )
+            ]
             if use_batchnorm:
                 ret += [torch.nn.BatchNorm2d(v)]
             ret += [torch.nn.ReLU(inplace=True)]
@@ -18,7 +22,7 @@ def make_features(cfg, use_batchnorm):
 
 class ConvNet(torch.nn.Module):
     cfg = [32, "M", 64, 64, "M", 128, 128, "M"]
-    
+
     def __init__(self, n_classes=10, use_batchnorm=False, dropout_p=0.0):
         super().__init__()
         self.n_classes = n_classes
@@ -31,7 +35,7 @@ class ConvNet(torch.nn.Module):
             torch.nn.Linear(128, 128),
             torch.nn.Dropout1d(dropout_p, inplace=True),
             torch.nn.ReLU(inplace=True),
-            torch.nn.Linear(128, self.n_classes)
+            torch.nn.Linear(128, self.n_classes),
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
